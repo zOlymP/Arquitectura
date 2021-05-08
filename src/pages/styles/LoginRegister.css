@@ -1,0 +1,206 @@
+/* Login & Register Container */
+.LoginRegister {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  min-height: 100vh;
+}
+
+.LoginRegister-content {
+  padding: 2.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.LoginRegister-content-title {
+  font-size: 4em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.LoginRegister-content-image {
+  width: 75%;
+}
+
+.LoginRegister-form {
+  background: rgba(1, 111, 185, 0.3);
+  color: #fff;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.LoginRegister-form-logo {
+  height: 4.5em;
+  margin-bottom: 1.5em;
+}
+
+.LoginRegister-form-label {
+  height: 3em;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  justify-items: center;
+  overflow: hidden;
+}
+
+.LoginRegister-form-input {
+  background: none;
+  height: 100%;
+  font-size: 1.1em;
+  padding-right: 1em;
+  outline: none;
+  border: none;
+  width: 100%;
+  color: #000;
+}
+
+.LoginRegister-form-button {
+  height: 3em;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: #000;
+  border: 1px solid black;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: 0.2s all ease;
+  cursor: pointer;
+  color: white;
+}
+
+.LoginRegister-form-button:hover {
+  background: white;
+  color: black;
+}
+
+.LoginRegister-form-question-link {
+  color: #000;
+}
+
+.LoginRegister-form-links {
+  margin-top: 2em;
+  padding-top: 1em;
+  width: 100%;
+  border-top: 1px solid #000;
+  display: inline-grid;
+  text-align: center;
+}
+
+.LoginRegister-form-links > a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.LoginRegister-links-question {
+  width: 100%;
+  margin-top: 1.2em;
+  text-align: center;
+  color: #000;
+}
+
+.LoginRegister-form-links-link {
+  color: #000;
+  font-size: 14px;
+  margin-right: 1em;
+  text-decoration: none;
+}
+
+.LoginRegister__errors {
+  color: rgb(255, 102, 102);
+  margin-top: 2em;
+}
+
+.LoginRegister__errors--li {
+  list-style-position: inside;
+  margin-top: 1em;
+}
+
+.LoginRegister-form-question-link {
+  text-decoration: none;
+  transition: 0.2s all ease;
+}
+
+.LoginRegister-form-question-link:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+/* Login & Register Conatianer END */
+
+/* Login */
+.login-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.5em;
+  margin-top: 3em;
+}
+/* Login END */
+
+/* Register */
+.register-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+  margin-top: 1em;
+}
+
+/* Register END */
+
+/* .GoogleButton-Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Media Queries */
+
+@media screen and (max-width: 1686px) {
+  .LoginRegister-form-input {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 1484px) {
+  .LoginRegister-form-input {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .LoginRegister-form-label {
+    grid-template-columns: 1fr 6fr;
+  }
+}
+@media screen and (max-width: 1332px) {
+  h1 {
+    font-size: 32px;
+  }
+  .LoginRegister-form-logo {
+    height: 4.5em;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .LoginRegister-form-label {
+    grid-template-columns: 1fr 4fr;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .LoginRegister {
+    grid-template-columns: 1fr;
+  }
+  .LoginRegister-content {
+    display: none;
+  }
+  .LoginRegister-form-label {
+    grid-template-columns: 1fr 10fr;
+  }
+  .register-grid {
+    grid-template-columns: 1fr;
+  }
+}
