@@ -6,17 +6,79 @@ import React, {
 // Estilos
 import "bootstrap/dist/css/bootstrap.css";
 // Componente Utilizadps
+import { Redirect } from "react-router-dom";
+import { useAuth } from "./Auth";
 import Loader from "./Loader";
 // Material UI Components
 import { TextField } from "@material-ui/core";
+import { auth } from "../firebase/client";
 
 export default function Login() {
-  const [loading] = useState(false);
-  const [errors] = useState({});
+  const [form, setValues] = useState({
+    username: "",
+    email: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+  const { user } = useAuth();
 
   useEffect(() => {
     document.title = "Narradores Digitales - Registro";
   }, []);
+
+  // Función para saber lo que el usuario escribe
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  // Función que envia los datos a Firebase
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!form.email.trim()) {
+      setErrors({
+        emailTrim: true,
+      });
+      return null;
+    }
+    setErrors({});
+    setLoading(true);
+    if (form.password === form.confirmPassword) {
+      auth
+        .createUserWithEmailAndPassword(form.email, form.password)
+        .then((userCredentials) => {
+          return userCredentials.user.updateProfile({
+            displayName: form.nombre,
+          });
+        })
+
+        .catch((err) => {
+          if (err.code === "auth/email-already-in-use") {
+            setErrors({
+              email: true,
+            });
+            setLoading(false);
+          } else {
+            setErrors({
+              unexpected: true,
+            });
+            setLoading(false);
+          }
+        });
+      setLoading(true);
+    } else {
+      setErrors({
+        password: true,
+      });
+    }
+    setLoading(false);
+  };
+
+  if (user) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <>
@@ -24,7 +86,7 @@ export default function Login() {
         <h1 className="text-center font-weight-bold text-dark">
           ¡Dale vida a las ideas de los mas pequeños!
         </h1>
-        <form className="register-grid">
+        <form className="register-grid" onSubmit={handleSubmit}>
           <TextField
             label="Nombre Completo"
             type="text"
@@ -37,6 +99,8 @@ export default function Login() {
             }}
             placeholder="Ej. Pepito Perez"
             variant="outlined"
+            onChange={handleInput}
+            disabled={loading}
           />
           <TextField
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
@@ -47,6 +111,8 @@ export default function Login() {
             autoComplete="off"
             required
             placeholder="Ej. pepito.perez"
+            onChange={handleInput}
+            disabled={loading}
           />
 
           <TextField
@@ -60,6 +126,8 @@ export default function Login() {
             inputProps={{
               maxLength: 12,
             }}
+            onChange={handleInput}
+            disabled={loading}
           />
           <TextField
             className="txtField MuiOutlinedInput-notchedOutline MuiFormLabel-root"
@@ -72,11 +140,14 @@ export default function Login() {
               maxLength: 12,
             }}
             required
+            onChange={handleInput}
+            disabled={loading}
           />
           <input
             type="submit"
             className="LoginRegister-form-button register-grid-division mt-3 "
             value="Registrarse"
+            disabled={loading}
           />
         </form>
         {loading ? (

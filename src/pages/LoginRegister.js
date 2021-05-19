@@ -20,24 +20,23 @@ export default function LoginRegister({ match }) {
         <div className="LoginRegister-form">
           <div>
             <Link to="/">
-              <img src={ND} alt="Sinapsis UAO" className="LoginRegister-form-logo" />
+              <img src={ND} alt="Narradores digitales" className="LoginRegister-form-logo" />
             </Link>
           </div>
-
           {match.path === "/login" ? <Login /> : <Register />}
 
           <div className="LoginRegister-links-question">
             {match.path === "/login" ? (
               <span>
                 ¿No tienes cuenta?
-                <Link to="/register" className="LoginRegister-form-question-link">
+                <Link to="/register" className="LoginRegister-form-question-link text-dark">
                   <strong> Reg&iacute;strate</strong>
                 </Link>
               </span>
             ) : (
               <span>
                 ¿Ya tienes cuenta?
-                <Link to="/login" className="LoginRegister-form-question-link">
+                <Link to="/login" className="LoginRegister-form-question-link text-dark">
                   <strong> Inicia sesi&oacute;n</strong>
                 </Link>
               </span>
@@ -53,7 +52,7 @@ export default function LoginRegister({ match }) {
           <div className="LoginRegister-form-links">
             <a
               className="LoginRegister-form-links-link"
-              href="https://www.cali.gov.co/tic/publicaciones/1344/polticas_seguridad_de_la_informacin/"
+              href="/#"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -61,14 +60,14 @@ export default function LoginRegister({ match }) {
             </a>
             <a
               className="LoginRegister-form-links-link"
-              href="https://www.cali.gov.co/tic/publicaciones/1344/polticas_seguridad_de_la_informacin/"
+              href="/#"
               target="_blank"
               rel="noopener noreferrer"
             >
               Transparencia y Acceso a la información P&uacute;blica
             </a>
             <a
-              // href="https://abstractcode.co/"
+              href="/#"
               className="LoginRegister-form-links-link"
               target="_blank"
               rel="noopener noreferrer"
@@ -77,7 +76,7 @@ export default function LoginRegister({ match }) {
             </a>
           </div>
         </div>
-        <div className="LoginRegister-content">
+        <div className="LoginRegister-img">
           <img src={LoginRegisterLogo} alt="Imagen" className="LoginRegister-content-image" />
         </div>
       </div>

@@ -1,3 +1,8 @@
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
 /* Login & Register Container */
 .LoginRegister {
   display: grid;
@@ -5,7 +10,7 @@
   min-height: 100vh;
 }
 
-.LoginRegister-content {
+.LoginRegister-img {
   padding: 2.5em;
   display: flex;
   flex-direction: column;
@@ -26,15 +31,15 @@
 .LoginRegister-form {
   background: rgba(1, 111, 185, 0.3);
   color: #fff;
-  padding: 3em;
+  padding: 1.5em 3em 1.5em 3em;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .LoginRegister-form-logo {
-  height: 4.5em;
-  margin-bottom: 1.5em;
+  height: 3.5em;
+  margin-bottom: 1em;
 }
 
 .LoginRegister-form-label {
@@ -194,7 +199,7 @@
   .LoginRegister {
     grid-template-columns: 1fr;
   }
-  .LoginRegister-content {
+  .LoginRegister-img {
     display: none;
   }
   .LoginRegister-form-label {

@@ -3,10 +3,11 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PageNotFound from "../pages/PageNotFound";
 import LandingPage from "../pages/Home";
 import LoginRegister from "../pages/LoginRegister";
+import { AuthContextProvider } from "../components/Auth";
 
 const App = () => {
   return (
-    <div>
+    <AuthContextProvider>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={LandingPage} />
@@ -16,7 +17,7 @@ const App = () => {
           <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
-    </div>
+    </AuthContextProvider>
   );
 };
 
