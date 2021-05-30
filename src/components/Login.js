@@ -1,8 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  // , useContext
-} from "react";
+import React, { useEffect, useState } from "react";
 // Componentes Utilizados
 import { Redirect } from "react-router-dom";
 import { useAuth } from "./Auth";
@@ -35,7 +31,8 @@ export default function Login() {
     event.preventDefault();
     setErrors({});
     setLoading(true);
-    auth.signInWithEmailAndPassword(form.email, form.password).catch((err) => {
+
+    auth.signInWithEmailAndPassword(`${form.email}`, form.password).catch((err) => {
       if (err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {
         setErrors({
           incorrect: true,
@@ -56,17 +53,17 @@ export default function Login() {
   }
 
   return (
-    <div>
+    <>
       <h1 className="text-center font-weight-bold mt-3 text-dark">Inicia Sesi&oacute;n</h1>
       <form className="login-grid" onSubmit={handleSubmit}>
         <TextField
-          // required
+          required
           id="outlined-basic"
-          // placeholder="Ej. pepito.perez@gmail.com"
+          placeholder="Ej. pepito.perez@gmail.com"
           label="Correo el&eacute;ctronico"
-          // name="email"
-          // onChange={handleInput}
-          // disabled={loading}
+          name="email"
+          onChange={handleInput}
+          disabled={loading}
           variant="outlined"
         />
 
@@ -112,6 +109,6 @@ export default function Login() {
           </span>
         </div>
       )}
-    </div>
+    </>
   );
 }

@@ -1,0 +1,80 @@
+.menu-usuario {
+  background-color: unset !important;
+  border: unset !important;
+  padding: unset !important;
+  box-shadow: unset !important;
+  /* color: black !important; */
+}
+
+.menu-usuario:hover {
+  background-color: unset !important;
+  border-color: unset !important;
+  box-shadow: unset !important;
+}
+
+.dropdown-1 {
+  padding: 0.25rem 1.5rem;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.items-dropdown {
+  color: black;
+  transition: opacity 0.3s ease;
+}
+
+.items-dropdown:hover {
+  color: black;
+}
+
+.dropdown:active {
+  background-color: unset !important;
+}
+
+.MuiTouchRipple-root:active {
+  border: 0;
+  outline: 0;
+}
+
+.MuiListItemIcon-root {
+  min-width: 35px !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.nav-item {
+  color: black;
+  transition: opacity 0.3s ease;
+  font-weight: 500;
+}
+.nav-item:hover {
+  color: black;
+  opacity: 0.7;
+}
+
+.MuiAppBar-colorPrimary {
+  color: black !important;
+  background-color: white !important;
+}
+
+.MuiToolbar-gutters {
+  padding: 0 7% !important;
+}
+
+.MuiToolbar-root {
+  justify-content: space-between !important;
+}
+.MuiToolbar-regular {
+  min-height: 81px !important;
+}
+
+.MuiFormLabel-root {
+  font-family: "Inter", sans-serif !important;
+}
+.MuiFormLabel-root.Mui-focused {
+  color: black !important;
+}
+
+/* @media screen and (max-width:) */
