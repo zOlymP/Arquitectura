@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../components/NavBar/Navbar";
+import { MultiStepForm } from "../components/Formulario/MultiStepForm";
 
 export default function CrearHistoriaPage() {
   return (
     <>
-      <Navbar />
+      <MultiStepForm />
     </>
   );
 }
