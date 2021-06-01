@@ -145,103 +145,10 @@ export default function Revision({ formData, navigation }) {
 
   return (
     <>
-      <Navbar text={"Nuevo Paciente - Revision"} />
+      <Navbar />
       <div className="Form-Container">
-        <h1>Revision</h1>
-        <RenderAccordion
-          summary="General"
-          go={go}
-          details={[
-            {
-              "Nombre Completo: ": nombreCompleto,
-            },
-            {
-              "Genero: ": genero,
-            },
-            {
-              "Tipo de sangre: ": tipoSangre,
-            },
-            {
-              "Edad: ": edad,
-            },
-            {
-              "Estatura: ": estatura,
-            },
-            {
-              "Peso: ": peso,
-            },
-            {
-              "Correo electronico: ": email,
-            },
-            {
-              "Numero de identificacion: ": numeroDocumento,
-            },
-            {
-              "Estado civil: ": estadoCivil,
-            },
-            {
-              "Direccion: ": direccion,
-            },
-            {
-              "Telefono 1: ": telefono1,
-            },
-            {
-              "Telefono 2: ": telefono2,
-            },
-            {
-              "Numero de emergencia: ": numeroEmergencia,
-            },
-            {
-              "EPS: ": EPS,
-            },
-            {
-              "En el ultimo año ha consultado a su medico?:": consultaMedica,
-            },
-            {
-              "Actualmente esta en tratamiento medico?: ": tratamientoMedico,
-            },
-            {
-              "Posee radiografias actualizadas?: ": radiografias,
-            },
-          ]}
-        />
-        <RenderAccordion
-          summary="Anamnesis"
-          go={go}
-          details={[
-            {
-              "Motivo de la consulta": motivoConsulta,
-            },
-            { "Enfermedad actual: ": enfermedadActual },
-            { "Antecedente familiar de diabetes: ": antDiabetes },
-            { "Antecedente familiar de cancer: ": antCancer },
-            { "Antecedente familiar de leucemia: ": antLeucemia },
-            { "Antecedente familiar de cardiopatias: ": antCardiopatias },
-            { "Alergia/s: ": alergia },
-            { "Antecedente personal de diabetes: ": diabetes },
-            { "Antecedente personal de cancer: ": cancer },
-            { "Antecedente personal de leucemia: ": leucemia },
-            { "Antecedente personal de cardiopatias: ": cardiopatias },
-            { "Antecedente personal de cirugias: ": cirugias },
-            { "Antecedente personal de hospitalarios: ": hospitalarios },
-            { "Antecedente personal de psicologicos: ": psicologicos },
-            { "Antecedente personal de HTA:": HTA },
-          ]}
-        />
-        <RenderAccordion
-          summary="Consentimiento"
-          go={go}
-          details={[
-            {
-              "Acepto el consentimiento: ": consentimiento,
-            },
-          ]}
-        />
-        <Snackbar open={open} autoHideDuration={1500} onClose={handleClose}>
-          {/* <Alert onClose={handleClose} severity="success">
-            Cliente añadido!
-          </Alert> */}
-        </Snackbar>
+        <h1>Video</h1>
+
         <div className="stepForm_buttons-container mt-3 mb-3">
           <Button
             color="secondary"
@@ -258,7 +165,7 @@ export default function Revision({ formData, navigation }) {
             onClick={() => handleSubmit()}
             variant="contained"
           >
-            Terminar
+            Grabar
           </Button>
         </div>
       </div>

@@ -7,12 +7,19 @@ import { makeStyles } from "@material-ui/core/styles";
 import { ArrowForward as ArrowForwardIcon, ArrowBack as ArrowBackIcon } from "@material-ui/icons";
 import { useAuth } from "../../Auth";
 import { Redirect } from "react-router-dom";
-import bg1 from "../../../images/pana.svg";
+import bg1 from "../../../images/bg1.svg";
 import bg2 from "../../../images/bg2.svg";
 import bg3 from "../../../images/bg3.svg";
+import bg4 from "../../../images/bg4.svg";
 import nada from "../../../images/nada.svg";
-import p1 from "../../../images/personaje1.svg";
-import p2 from "../../../images/Personaje2.svg";
+import p1 from "../../../images/p1.svg";
+import p2 from "../../../images/p2.svg";
+import p3 from "../../../images/p3.svg";
+import p4 from "../../../images/p4.svg";
+import p5 from "../../../images/p5.svg";
+import p6 from "../../../images/p6.svg";
+import p7 from "../../../images/p7.svg";
+import p8 from "../../../images/p8.svg";
 
 const useStyles = makeStyles((theme) => ({
   detailsContainer: {
@@ -46,11 +53,11 @@ export default function Personaje2({ formData, setForm, navigation }) {
               </div>
             ) : escenario === "3" ? (
               <div className="vistaPrevia-imageContainer">
-                <img src="" alt="escenario 3" />
+                <img src={bg3} alt="escenario 3" />
               </div>
             ) : escenario === "4" ? (
               <div className="vistaPrevia-imageContainer">
-                <img src="" alt="escenario 4" />
+                <img src={bg4} alt="escenario 4" />
               </div>
             ) : (
               <div className="vistaPrevia-imageContainer">
@@ -70,11 +77,11 @@ export default function Personaje2({ formData, setForm, navigation }) {
                 </div>
               ) : escenario === "3" ? (
                 <div className="images-imageContainer">
-                  <img src="" alt="escenario 3" />
+                  <img src={bg3} alt="escenario 3" />
                 </div>
               ) : escenario === "4" ? (
                 <div className="images-imageContainer">
-                  <img src="" alt="escenario 4" />
+                  <img src={bg4} alt="escenario 4" />
                 </div>
               ) : (
                 <div className="images-imageContainer">
@@ -90,15 +97,15 @@ export default function Personaje2({ formData, setForm, navigation }) {
                   </div>
                 ) : personaje1 === "2" ? (
                   <div className="images-imageContainer">
-                    <img src="" alt="personaje 2" />
+                    <img src={p2} alt="personaje 2" />
                   </div>
                 ) : personaje1 === "3" ? (
                   <div className="images-imageContainer">
-                    <img src="" alt="personaje 3" />
+                    <img src={p3} alt="personaje 3" />
                   </div>
                 ) : personaje1 === "4" ? (
                   <div className="images-imageContainer">
-                    <img src="" alt="personaje 4" />
+                    <img src={p4} alt="personaje 4" />
                   </div>
                 ) : (
                   <div className="images-imageContainer">
@@ -109,19 +116,19 @@ export default function Personaje2({ formData, setForm, navigation }) {
               <div className="personajes-historia mt-3">
                 {personaje2 === "1" ? (
                   <div className="images-imageContainer">
-                    <img src={p2} alt="personaje 1" />
+                    <img src={p5} alt="personaje 1" />
                   </div>
                 ) : personaje2 === "2" ? (
                   <div className="images-imageContainer">
-                    <img src="" alt="personaje 2" />
+                    <img src={p6} alt="personaje 2" />
                   </div>
                 ) : personaje2 === "3" ? (
                   <div className="images-imageContainer">
-                    <img src="" alt="personaje 3" />
+                    <img src={p7} alt="personaje 3" />
                   </div>
                 ) : personaje2 === "4" ? (
                   <div className="images-imageContainer">
-                    <img src="" alt="personaje 4" />
+                    <img src={p8} alt="personaje 4" />
                   </div>
                 ) : (
                   <div className="images-imageContainer">

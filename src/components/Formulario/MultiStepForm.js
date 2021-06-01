@@ -3,7 +3,7 @@ import { useForm, useStep } from "react-hooks-helper";
 import General from "./StepForm/General";
 import Personaje1 from "./StepForm/Personaje1";
 import Personaje2 from "./StepForm/Personaje2";
-import Revision from "./StepForm/Revision";
+import Video from "./StepForm/Video";
 
 const defaultData = {
   escenario: "",
@@ -11,7 +11,7 @@ const defaultData = {
   personaje2: "",
 };
 
-const steps = [{ id: "General" }, { id: "Personaje1" }, { id: "Personaje2" }, { id: "Revision" }];
+const steps = [{ id: "General" }, { id: "Personaje1" }, { id: "Personaje2" }, { id: "Video" }];
 
 export const MultiStepForm = () => {
   const [formData, setForm] = useForm(defaultData);
@@ -29,8 +29,8 @@ export const MultiStepForm = () => {
       return <Personaje1 {...props} />;
     case "Personaje2":
       return <Personaje2 {...props} />;
-    case "Revision":
-      return <Revision {...props} />;
+    case "Video":
+      return <Video {...props} />;
     default:
       return "Ha ocurrido un error, intentalo despues";
   }
