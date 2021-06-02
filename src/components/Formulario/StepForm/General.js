@@ -61,19 +61,19 @@ export default function General({ arduino, navigation }) {
         <h3 className="font-weight-bold main-title mt-3 mb-3">Selecci&oacute;n del escenario</h3>
         <div className="form">
           <div className="vistaPrevia-historia">
-            {escenario === "1" ? (
+            {escenario === 1 ? (
               <div className="vistaPrevia-imageContainer text-center">
                 <img src={bg1} alt="escenario 1" />
               </div>
-            ) : escenario === "2" ? (
+            ) : escenario === 2 ? (
               <div className="vistaPrevia-imageContainer">
                 <img src={bg2} alt="escenario 2" />
               </div>
-            ) : escenario === "3" ? (
+            ) : escenario === 3 ? (
               <div className="vistaPrevia-imageContainer">
                 <img src={bg3} alt="escenario 3" />
               </div>
-            ) : escenario === "4" ? (
+            ) : escenario === 4 ? (
               <div className="vistaPrevia-imageContainer">
                 <img src={bg4} alt="escenario 4" />
               </div>
@@ -86,19 +86,19 @@ export default function General({ arduino, navigation }) {
           <div className="details-container">
             <div className="personajes-container">
               <div className="personajes-historia ">
-                {personaje1 === "1" ? (
+                {personaje1 === 1 ? (
                   <div className="images-imageContainer">
                     <img src={p1} alt="personaje 1" />
                   </div>
-                ) : personaje1 === "2" ? (
+                ) : personaje1 === 2 ? (
                   <div className="images-imageContainer">
                     <img src={p2} alt="personaje 2" />
                   </div>
-                ) : personaje1 === "3" ? (
+                ) : personaje1 === 3 ? (
                   <div className="images-imageContainer">
                     <img src={p3} alt="personaje 3" />
                   </div>
-                ) : personaje1 === "4" ? (
+                ) : personaje1 === 4 ? (
                   <div className="images-imageContainer">
                     <img src={p4} alt="personaje 4" />
                   </div>
@@ -110,19 +110,19 @@ export default function General({ arduino, navigation }) {
               </div>
               <div className="personajes-historia ">
                 <div className="images-imageContainer">
-                  {personaje2 === "1" ? (
+                  {personaje2 === 1 ? (
                     <div className="images-imageContainer">
                       <img src={p5} alt="personaje 1" />
                     </div>
-                  ) : personaje2 === "2" ? (
+                  ) : personaje2 === 2 ? (
                     <div className="images-imageContainer">
                       <img src={p6} alt="personaje 2" />
                     </div>
-                  ) : personaje2 === "3" ? (
+                  ) : personaje2 === 3 ? (
                     <div className="images-imageContainer">
                       <img src={p7} alt="personaje 3" />
                     </div>
-                  ) : personaje2 === "4" ? (
+                  ) : personaje2 === 4 ? (
                     <div className="images-imageContainer">
                       <img src={p8} alt="personaje 4" />
                     </div>
