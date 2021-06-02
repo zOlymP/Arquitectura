@@ -62,58 +62,58 @@ export default function Revision({ arduino, navigation }) {
 
         <div className="form">
           <div className="vistaPrevia-historia-grabar">
-            {escenario === "1" ? (
+            {escenario === 1 ? (
               <div className="vistaPrevia-imageContainer">
                 <img src={bg1} alt="escenario 1" />
               </div>
-            ) : escenario === "2" ? (
+            ) : escenario === 2 ? (
               <div className="vistaPrevia-imageContainer">
                 <img src={bg2} alt="escenario 2" />
               </div>
-            ) : escenario === "3" ? (
+            ) : escenario === 3 ? (
               <div className="vistaPrevia-imageContainer">
                 <img src={bg3} alt="escenario 3" />
               </div>
             ) : (
-              escenario === "4" && (
+              escenario === 4 && (
                 <div className="vistaPrevia-imageContainer">
                   <img src={bg4} alt="escenario 4" />
                 </div>
               )
             )}
-            {personaje1 === "1" ? (
+            {personaje1 === 1 ? (
               <div className="personaje1">
                 <img src={p1} alt="personaje1 1" />
               </div>
-            ) : personaje1 === "2" ? (
+            ) : personaje1 === 2 ? (
               <div className="personaje1">
                 <img src={p2} alt="personaje1 2" />
               </div>
-            ) : personaje1 === "3" ? (
+            ) : personaje1 === 3 ? (
               <div className="personaje1">
                 <img src={p3} alt="personaje1 3" />
               </div>
             ) : (
-              personaje1 === "4" && (
+              personaje1 === 4 && (
                 <div className="personaje1">
                   <img src={p4} alt="personaje1 4" />
                 </div>
               )
             )}
-            {personaje2 === "1" ? (
+            {personaje2 === 1 ? (
               <div className="personaje2">
                 <img src={p5} alt="personaje2 1" />
               </div>
-            ) : personaje2 === "2" ? (
+            ) : personaje2 === 2 ? (
               <div className="personaje2">
                 <img src={p6} alt="personaje2 2" />
               </div>
-            ) : personaje2 === "3" ? (
+            ) : personaje2 === 3 ? (
               <div className="personaje2">
                 <img src={p7} alt="personaje2 3" />
               </div>
             ) : (
-              personaje2 === "4" && (
+              personaje2 === 4 && (
                 <div className="personaje2">
                   <img src={p8} alt="personaje2 4" />
                 </div>
