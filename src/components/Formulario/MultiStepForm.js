@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, useStep } from "react-hooks-helper";
+import { database } from "../../firebase/client";
 import General from "./StepForm/General";
 import Personaje1 from "./StepForm/Personaje1";
 import Personaje2 from "./StepForm/Personaje2";
@@ -9,18 +10,28 @@ const defaultData = {
   escenario: "",
   personaje1: "",
   personaje2: "",
+  movimiento: "",
 };
 
 const steps = [{ id: "General" }, { id: "Personaje1" }, { id: "Personaje2" }, { id: "Video" }];
 
 export const MultiStepForm = () => {
-  const [formData, setForm] = useForm(defaultData);
   const { step, navigation } = useStep({
     steps,
     initialStep: 0,
   });
+  const [arduino, setArduino] = useState(defaultData);
 
-  const props = { formData, setForm, navigation };
+  useEffect(() => {
+    database
+      .collection("arduino")
+      .doc("data")
+      .onSnapshot((querysnapshot) => {
+        setArduino(querysnapshot.data());
+      });
+  }, []);
+
+  const props = { arduino, navigation };
 
   switch (step.id) {
     case "General":

@@ -5,10 +5,23 @@ import PageNotFound from "../pages/PageNotFound";
 import LandingPage from "../pages/Home";
 import LoginRegister from "../pages/LoginRegister";
 import CrearHistoriaPage from "../pages/CrearHistoriaPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <AuthContextProvider>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={LandingPage} />

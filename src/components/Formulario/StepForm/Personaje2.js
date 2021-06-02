@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../NavBar/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/style.css";
 import { TextField, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import { ArrowForward as ArrowForwardIcon, ArrowBack as ArrowBackIcon } from "@material-ui/icons";
 import { useAuth } from "../../Auth";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import bg1 from "../../../images/bg1.svg";
 import bg2 from "../../../images/bg2.svg";
 import bg3 from "../../../images/bg3.svg";
@@ -20,16 +19,33 @@ import p5 from "../../../images/p5.svg";
 import p6 from "../../../images/p6.svg";
 import p7 from "../../../images/p7.svg";
 import p8 from "../../../images/p8.svg";
+import { toast } from "react-toastify";
 
-const useStyles = makeStyles((theme) => ({
-  detailsContainer: {
-    width: "290px",
-  },
-}));
+export default function Personaje2({ arduino, navigation }) {
+  const { escenario, personaje1, personaje2 } = arduino;
 
-export default function Personaje2({ formData, setForm, navigation }) {
-  const { escenario, personaje1, personaje2 } = formData;
-  const classes = useStyles();
+  const history = useHistory();
+
+  useEffect(() => {
+    const setTarjeta = async () => {
+      try {
+        await fetch("http://localhost:8080/personaje2", { method: "POST" });
+      } catch (error) {
+        toast.error("El servicio no esta disponible en estos momentos", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        history.push("/");
+      }
+    };
+
+    setTarjeta();
+  }, []);
 
   const { user } = useAuth();
   if (!user) {
@@ -40,7 +56,7 @@ export default function Personaje2({ formData, setForm, navigation }) {
     <>
       <Navbar />
       <div className="Form-Container">
-        <h3 className="font-weight-bold main-title mt-3 mb-3">Selecci&oacute;n</h3>
+        <h3 className="font-weight-bold main-title mt-3 mb-3">Selecci&oacute;n del personaje2</h3>
         <div className="form">
           <div className="vistaPrevia-historia">
             {escenario === "1" ? (
@@ -65,32 +81,9 @@ export default function Personaje2({ formData, setForm, navigation }) {
               </div>
             )}
           </div>
-          <div className={classes.detailsContainer}>
-            <div className="escenario-historia ">
-              {escenario === "1" ? (
-                <div className="images-imageContainer">
-                  <img src={bg1} alt="escenario 1" />
-                </div>
-              ) : escenario === "2" ? (
-                <div className="images-imageContainer">
-                  <img src={bg2} alt="escenario 2" />
-                </div>
-              ) : escenario === "3" ? (
-                <div className="images-imageContainer">
-                  <img src={bg3} alt="escenario 3" />
-                </div>
-              ) : escenario === "4" ? (
-                <div className="images-imageContainer">
-                  <img src={bg4} alt="escenario 4" />
-                </div>
-              ) : (
-                <div className="images-imageContainer">
-                  <img src={nada} alt="Sin escenario" />
-                </div>
-              )}
-            </div>
+          <div className="details-container">
             <div className="personajes-container">
-              <div className="personajes-historia mt-3">
+              <div className="personajes-historia ">
                 {personaje1 === "1" ? (
                   <div className="images-imageContainer">
                     <img src={p1} alt="personaje 1" />
@@ -113,7 +106,7 @@ export default function Personaje2({ formData, setForm, navigation }) {
                   </div>
                 )}
               </div>
-              <div className="personajes-historia mt-3">
+              <div className="personajes-historia ">
                 {personaje2 === "1" ? (
                   <div className="images-imageContainer">
                     <img src={p5} alt="personaje 1" />
@@ -137,14 +130,6 @@ export default function Personaje2({ formData, setForm, navigation }) {
                 )}
               </div>
             </div>
-            <TextField
-              className="mt-2"
-              defaultValue={personaje2}
-              label="Personaje 2"
-              name="personaje2"
-              onChange={setForm}
-              variant="outlined"
-            />
           </div>
         </div>
 
