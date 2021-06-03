@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../NavBar/Navbar";
 import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import { DoneAll as DoneAllIcon, ArrowBack as ArrowBackIcon } from "@material-ui/icons";
+import {
+  PlayCircleFilled as PlayCircleFilledIcon,
+  PauseCircleFilled as PauseCircleFilledIcon,
+  Videocam as VideocamIcon,
+  DoneAll as DoneAllIcon,
+  ArrowBack as ArrowBackIcon,
+} from "@material-ui/icons";
 import "bootstrap/dist/css/bootstrap.css";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Auth";
@@ -20,7 +26,7 @@ import p7 from "../../../images/p7.svg";
 import p8 from "../../../images/p8.svg";
 import { toast } from "react-toastify";
 import { useRef } from "react";
-import { ReactMediaRecorder } from "react-media-recorder";
+import { useReactMediaRecorder } from "react-media-recorder";
 
 export default function Revision({ arduino, navigation }) {
   const {
@@ -32,6 +38,18 @@ export default function Revision({ arduino, navigation }) {
     movimientoPersonaje2,
   } = arduino;
   const history = useHistory();
+
+  const {
+    status,
+    startRecording,
+    pauseRecording,
+    stopRecording,
+    resumeRecording,
+    mediaBlobUrl,
+    clearBlobUrl,
+  } = useReactMediaRecorder({
+    screen: true,
+  });
 
   const personaje1Ref = useRef();
   const personaje2Ref = useRef();
@@ -132,7 +150,7 @@ export default function Revision({ arduino, navigation }) {
             </div>
           </div>
 
-          <div className="stepForm_buttons-container mt-3 mb-3">
+          <div className="stepForm_buttons-container w-100 mt-3 mb-3 ">
             <Button
               color="secondary"
               className="mr-3"
@@ -142,29 +160,100 @@ export default function Revision({ arduino, navigation }) {
             >
               Atras
             </Button>
-            <Button
-              color="primary"
-              endIcon={<DoneAllIcon />}
-              // onClick={() => handleSubmit()}
-              variant="contained"
-            >
-              Grabar
-            </Button>
-          </div>
 
-          <div>
-    <ReactMediaRecorder
-      screen
-      render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
-        <div>
-          <p>{status}</p>
-          <button onClick={startRecording}>Start Recording</button>
-          <button onClick={stopRecording}>Stop Recording</button>
-          <video src={mediaBlobUrl} controls autoplay loop />
-        </div>
-      )}
-    />
-  </div>
+            {/* <p>{status}</p> */}
+
+            {status === "idle" && (
+              <Button
+                color="primary"
+                className="mr-3"
+                endIcon={<VideocamIcon />}
+                onClick={startRecording}
+                variant="contained"
+              >
+                Grabar
+              </Button>
+            )}
+
+            {status === "stopped" && (
+              <Button
+                color="primary"
+                className="mr-3"
+                endIcon={<VideocamIcon />}
+                onClick={() => {
+                  clearBlobUrl();
+                  startRecording();
+                }}
+                variant="contained"
+              >
+                Grabar de nuevo
+              </Button>
+            )}
+
+            {status === "recording" && (
+              <>
+                <Button
+                  color="primary"
+                  className="mr-3"
+                  endIcon={<PlayCircleFilledIcon />}
+                  onClick={() => {
+                    resumeRecording();
+                    toast.success("Video reanudado!", {
+                      position: "bottom-right",
+                      autoClose: 2500,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                    });
+                  }}
+                  variant="contained"
+                >
+                  Reanudar
+                </Button>
+
+                <Button
+                  color="primary"
+                  className="mr-3"
+                  endIcon={<PauseCircleFilledIcon />}
+                  onClick={() => {
+                    pauseRecording();
+                    toast.dark("Video pausado!", {
+                      position: "bottom-right",
+                      autoClose: 2500,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                    });
+                  }}
+                  variant="contained"
+                >
+                  Pausar
+                </Button>
+
+                <Button
+                  color="secondary"
+                  endIcon={<DoneAllIcon />}
+                  onClick={stopRecording}
+                  variant="contained"
+                >
+                  Terminar
+                </Button>
+              </>
+            )}
+          </div>
+          {mediaBlobUrl && (
+            <div className="mb-4">
+              <h3 className="font-weight-bold main-title mt-3 mb-3">
+                Previsualizaci&oacute;n del video
+              </h3>
+
+              <video width={1114} height={648} src={mediaBlobUrl} controls />
+            </div>
+          )}
         </div>
       </div>
     </>

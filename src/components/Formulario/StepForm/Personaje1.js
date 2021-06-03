@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Navbar from "../../NavBar/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/style.css";
-import { TextField, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { ArrowForward as ArrowForwardIcon, ArrowBack as ArrowBackIcon } from "@material-ui/icons";
 import { useAuth } from "../../Auth";
 import { Redirect, useHistory } from "react-router-dom";

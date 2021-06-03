@@ -9944,6 +9944,11 @@
   "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
 
+"react-media-recorder@^1.4.0":
+  "integrity" "sha512-3lc2LsS6TUG03tmbVd9Fnh7l1+YtbGy5Z+CYQA8zkJuGdroarLXxFExPXu0RqLFbomedD+Axp3pKuNrfIBmHtw=="
+  "resolved" "https://registry.npmjs.org/react-media-recorder/-/react-media-recorder-1.4.0.tgz"
+  "version" "1.4.0"
+
 "react-overlays@^5.0.0":
   "integrity" "sha512-plwUJieTBbLSrgvQ4OkkbTD/deXgxiJdNuKzo6n1RWE3OVnQIU5hffCGS/nvIuu6LpXFs2majbzaXY8rcUVdWA=="
   "resolved" "https://registry.npmjs.org/react-overlays/-/react-overlays-5.0.1.tgz"

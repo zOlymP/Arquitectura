@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useForm, useStep } from "react-hooks-helper";
+import { useStep } from "react-hooks-helper";
 import { database } from "../../firebase/client";
 import General from "./StepForm/General";
 import Personaje1 from "./StepForm/Personaje1";

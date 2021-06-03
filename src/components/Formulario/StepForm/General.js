@@ -145,7 +145,7 @@ export default function General({ arduino, navigation }) {
             endIcon={<ArrowForwardIcon />}
             disabled={!escenario}
           >
-            continuar
+            Continuar
           </Button>
         </div>
       </div>
