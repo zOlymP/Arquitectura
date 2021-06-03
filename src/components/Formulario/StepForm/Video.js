@@ -154,6 +154,7 @@ export default function Revision({ arduino, navigation }) {
 
           <div>
     <ReactMediaRecorder
+      screen
       render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
         <div>
           <p>{status}</p>
