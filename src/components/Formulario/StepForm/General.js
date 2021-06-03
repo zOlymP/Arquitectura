@@ -42,7 +42,7 @@ export default function General({ arduino, navigation }) {
           progress: undefined,
         });
         console.log(error);
-        history.push("/");
+        // history.push("/");
       }
     };
 

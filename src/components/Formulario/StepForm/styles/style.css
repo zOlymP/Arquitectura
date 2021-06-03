@@ -87,9 +87,10 @@ button {
 
 .personaje1 {
   position: absolute;
-  bottom: 1.5%;
+  bottom: -5%;
   left: 5%;
-  width: 14%;
+  width: 30%;
+  transition: 0.5s;
 }
 
 .personaje1 img {
@@ -98,8 +99,11 @@ button {
 
 .personaje2 {
   position: absolute;
-  bottom: 0;
-  width: 13%;
+  bottom: -5%;
+  width: 30%;
+  left: 0;
+
+  transition: 0.5s;
 }
 .personaje2 img {
   width: 100%;

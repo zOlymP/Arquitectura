@@ -19,10 +19,36 @@ import p6 from "../../../images/p6.svg";
 import p7 from "../../../images/p7.svg";
 import p8 from "../../../images/p8.svg";
 import { toast } from "react-toastify";
+import { useRef } from "react";
 
 export default function Revision({ arduino, navigation }) {
-  const { escenario, personaje1, personaje2, movimiento } = arduino;
+  const {
+    escenario,
+    personaje1,
+    personaje2,
+    personaje,
+    movimientoPersonaje1,
+    movimientoPersonaje2,
+  } = arduino;
   const history = useHistory();
+
+  const personaje1Ref = useRef();
+  const personaje2Ref = useRef();
+
+  useEffect(() => {
+    const currentPersonaje = personaje ? personaje1Ref : personaje2Ref;
+    const personajeRefMov = currentPersonaje.current.style.left;
+    const movimiento = personaje ? movimientoPersonaje1 : movimientoPersonaje2;
+    const dist = 7 * movimiento;
+
+    if (parseInt(personajeRefMov) < dist) {
+      currentPersonaje.current.style.transform = "none";
+      currentPersonaje.current.style.left = `${dist}%`;
+    } else {
+      currentPersonaje.current.style.transform = "scaleX(-1)";
+      currentPersonaje.current.style.left = `${dist}%`;
+    }
+  }, [movimientoPersonaje1, movimientoPersonaje2]);
 
   useEffect(() => {
     const setTarjeta = async () => {
@@ -41,7 +67,7 @@ export default function Revision({ arduino, navigation }) {
           progress: undefined,
         });
         console.log(error);
-        history.push("/");
+        // history.push("/");
       }
     };
 
@@ -81,44 +107,28 @@ export default function Revision({ arduino, navigation }) {
                 </div>
               )
             )}
-            {personaje1 === 1 ? (
-              <div className="personaje1">
+            <div className="personaje1" ref={personaje1Ref}>
+              {personaje1 === 1 ? (
                 <img src={p1} alt="personaje1 1" />
-              </div>
-            ) : personaje1 === 2 ? (
-              <div className="personaje1">
+              ) : personaje1 === 2 ? (
                 <img src={p2} alt="personaje1 2" />
-              </div>
-            ) : personaje1 === 3 ? (
-              <div className="personaje1">
+              ) : personaje1 === 3 ? (
                 <img src={p3} alt="personaje1 3" />
-              </div>
-            ) : (
-              personaje1 === 4 && (
-                <div className="personaje1">
-                  <img src={p4} alt="personaje1 4" />
-                </div>
-              )
-            )}
-            {personaje2 === 1 ? (
-              <div className="personaje2">
+              ) : (
+                personaje1 === 4 && <img src={p4} alt="personaje1 4" />
+              )}
+            </div>
+            <div className="personaje2" ref={personaje2Ref}>
+              {personaje2 === 1 ? (
                 <img src={p5} alt="personaje2 1" />
-              </div>
-            ) : personaje2 === 2 ? (
-              <div className="personaje2">
+              ) : personaje2 === 2 ? (
                 <img src={p6} alt="personaje2 2" />
-              </div>
-            ) : personaje2 === 3 ? (
-              <div className="personaje2">
+              ) : personaje2 === 3 ? (
                 <img src={p7} alt="personaje2 3" />
-              </div>
-            ) : (
-              personaje2 === 4 && (
-                <div className="personaje2">
-                  <img src={p8} alt="personaje2 4" />
-                </div>
-              )
-            )}
+              ) : (
+                personaje2 === 4 && <img src={p8} alt="personaje2 4" />
+              )}
+            </div>
           </div>
 
           <div className="stepForm_buttons-container mt-3 mb-3">

@@ -40,7 +40,7 @@ export default function Personaje2({ arduino, navigation }) {
           draggable: true,
           progress: undefined,
         });
-        history.push("/");
+        // history.push("/");
       }
     };
 

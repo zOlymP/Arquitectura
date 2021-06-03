@@ -41,7 +41,7 @@ export default function Personaje1({ arduino, navigation }) {
           progress: undefined,
         });
 
-        history.push("/");
+        // history.push("/");
       }
     };
 
