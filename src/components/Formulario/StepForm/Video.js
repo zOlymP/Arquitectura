@@ -20,6 +20,7 @@ import p7 from "../../../images/p7.svg";
 import p8 from "../../../images/p8.svg";
 import { toast } from "react-toastify";
 import { useRef } from "react";
+import { ReactMediaRecorder } from "react-media-recorder";
 
 export default function Revision({ arduino, navigation }) {
   const {
@@ -150,6 +151,19 @@ export default function Revision({ arduino, navigation }) {
               Grabar
             </Button>
           </div>
+
+          <div>
+    <ReactMediaRecorder
+      render={({ status, startRecording, stopRecording, mediaBlobUrl }) => (
+        <div>
+          <p>{status}</p>
+          <button onClick={startRecording}>Start Recording</button>
+          <button onClick={stopRecording}>Stop Recording</button>
+          <video src={mediaBlobUrl} controls autoplay loop />
+        </div>
+      )}
+    />
+  </div>
         </div>
       </div>
     </>
